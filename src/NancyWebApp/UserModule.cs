@@ -9,8 +9,15 @@ namespace NancyWebApp
     {
         public UserModule()
         {
+            // enable authentication for whole module
             this.RequiresAuthentication();
-            this.Get<IEnumerable<User>>("/nancy/users/", o => new[] { new User { Id = "arevilla", UserName = "arevilla" } }, null, "GetUsers");
+            this.Get<IEnumerable<User>>("/nancy/users/",
+                o =>
+                {
+                    return new[] { new User { Id = "arevilla", UserName = "arevilla" } };
+                },
+
+                null, "GetUsers");
         }
     }
 }

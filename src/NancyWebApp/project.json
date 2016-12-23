@@ -1,9 +1,9 @@
 {
-    "version": "1.0.0-*",
-    "buildOptions": {
-        "debugType": "portable",
-        "emitEntryPoint": true
-    },
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
 
   "frameworks": {
     "netcoreapp1.0": {
@@ -23,6 +23,7 @@
     "IdentityServer4": "1.0.0",
     "Microsoft.AspNetCore.Authorization": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics": "1.1.0",
-    "Microsoft.Extensions.Logging.Console": "1.1.0"
+    "Microsoft.Extensions.Logging.Console": "1.1.0",
+    "IdentityServer4.AccessTokenValidation": "1.0.1"
   }
 }
