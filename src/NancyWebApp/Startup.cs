@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace NancyWebApp
 {
     using IdentityServer;
@@ -16,7 +18,7 @@ namespace NancyWebApp
             app.UseIdentityServer();
             app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
             {
-                Authority = "http://localhost:5000",
+                Authority = Config.GetServerAddresses().First(),
                 RequireHttpsMetadata = false,
                 ApiName = "api1"
             });
