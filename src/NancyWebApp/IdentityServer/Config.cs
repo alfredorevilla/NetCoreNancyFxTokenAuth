@@ -5,11 +5,6 @@ namespace NancyWebApp.IdentityServer
 {
     public class Config
     {
-        public static string[] GetServerAddresses()
-        {
-            return new[] { "http://localhost:5000" };
-        }
-
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource> {
@@ -35,7 +30,7 @@ namespace NancyWebApp.IdentityServer
                     // scopes that client has access to
                     AllowedScopes = { "api1" }
                 }
-    };
+              };
         }
     }
 }

@@ -1,7 +1,6 @@
-using System.Linq;
-
 namespace NancyWebApp
 {
+    using Common;
     using IdentityServer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.Extensions.DependencyInjection;
@@ -16,11 +15,19 @@ namespace NancyWebApp
             app.UseDeveloperExceptionPage();
 
             app.UseIdentityServer();
+            //app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+            //{
+            //    Authority = ServerConfig.BaseAddress,
+            //    RequireHttpsMetadata = false,
+            //    EnableCaching = false,
+            //    ApiName = "api1",
+            //});
             app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
             {
-                Authority = Config.GetServerAddresses().First(),
-                RequireHttpsMetadata = false,
-                ApiName = "api1"
+                ApiName = "api1",
+                ApiSecret = "secret",
+                Authority = ServerConfig.BaseAddress,
+                RequireHttpsMetadata = false
             });
 
             app.UseOwin(x => x.UseNancy());
@@ -28,7 +35,8 @@ namespace NancyWebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityServer()
+            services
+                .AddIdentityServer()
                 .AddTemporarySigningCredential()
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients());

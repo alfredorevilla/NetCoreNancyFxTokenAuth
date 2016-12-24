@@ -1,6 +1,6 @@
 namespace NancyWebApp
 {
-    using IdentityServer;
+    using Common;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using System.IO;
@@ -11,7 +11,7 @@ namespace NancyWebApp
         {
             var host = new WebHostBuilder()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseUrls(Config.GetServerAddresses())
+                .UseUrls(ServerConfig.BaseAddress)
                 .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();

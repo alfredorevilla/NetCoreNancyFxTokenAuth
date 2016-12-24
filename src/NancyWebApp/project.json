@@ -24,6 +24,7 @@
     "Microsoft.AspNetCore.Authorization": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics": "1.1.0",
     "Microsoft.Extensions.Logging.Console": "1.1.0",
-    "IdentityServer4.AccessTokenValidation": "1.0.1"
+    "IdentityServer4.AccessTokenValidation": "1.0.1",
+    "NancyWebApp.Common": "1.0.0-*"
   }
 }
