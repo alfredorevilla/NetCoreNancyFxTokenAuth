@@ -5,8 +5,6 @@
     "System.Security.Principal": "4.3.0",
     "System.Linq.Dynamic.Core": "1.0.6.9",
     "IdentityServer4.AccessTokenValidation": "1.0.1",
-    "xunit": "2.1.0-*",
-    "xunit.runner.dnx": "2.1.0-*",
     "Microsoft.AspNet.WebApi.Client": "5.2.2-rc",
     "System.Runtime.Serialization.Xml": "4.1.0-beta-23516",
     "System.Private.DataContractSerialization": "4.1.1"

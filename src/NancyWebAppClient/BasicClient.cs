@@ -52,7 +52,7 @@ namespace NancyWebAppClient
             this.TokenResponse = await this.TokenClient.RequestResourceOwnerPasswordAsync(userName, password);
             if (TokenResponse == null)
             {
-                throw new NullReferenceException($"TokeResponse was not excepted to be null");
+                throw new NullReferenceException($"{nameof(TokenResponse)} should not be null");
             }
             if (TokenResponse.IsError)
             {
@@ -67,7 +67,7 @@ namespace NancyWebAppClient
 
         public async Task<IEnumerable<Book>> GetBookByUser(string userId)
         {
-            return await this.PostAsync<dynamic, IEnumerable<Book>>($"user/{userId}/books", null);
+            return await this.PostReadAsync<dynamic, IEnumerable<Book>>($"user/{userId}/books", null);
         }
 
         public DateTimeOffset GetTokenExpirationDate()
@@ -83,7 +83,7 @@ namespace NancyWebAppClient
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await this.PostAsync<dynamic, IEnumerable<User>>("api/users", null);
+            return await this.PostReadAsync<dynamic, IEnumerable<User>>("api/users", null);
         }
 
         private async Task<T> GetAsync<T>(string path)
@@ -92,7 +92,7 @@ namespace NancyWebAppClient
             return await response.Content.ReadAsAsync<T>();
         }
 
-        private async Task<T1> PostAsync<T, T1>(string path, T value)
+        private async Task<T1> PostReadAsync<T, T1>(string path, T value)
         {
             var response = await this.HttpClient.PostAsJsonAsync<T>(path, value);
             return await response.Content.ReadAsAsync<T1>();

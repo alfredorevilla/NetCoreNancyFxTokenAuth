@@ -15,8 +15,6 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebClient", "..\NancyW
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebApp.Common", "src\NancyWebApp.Common\NancyWebApp.Common.xproj", "{4B047A17-4933-4DCA-8036-88ED6B249DDD}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebApp.Tests", "test\NancyWebApp.Tests\NancyWebApp.Tests.xproj", "{BD93C9C6-BB74-4516-A990-359F6726C5E6}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebAppClient", "src\NancyWebAppClient\NancyWebAppClient.xproj", "{3C785F18-46F4-464F-9AAF-AE6AD2317ABF}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebAppClient.Tests", "test\NancyWebAppClient.Tests\NancyWebAppClient.Tests.xproj", "{34D067BA-EB79-49A6-8A49-54556C5B4488}"
@@ -39,10 +37,6 @@ Global
 		{4B047A17-4933-4DCA-8036-88ED6B249DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B047A17-4933-4DCA-8036-88ED6B249DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B047A17-4933-4DCA-8036-88ED6B249DDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD93C9C6-BB74-4516-A990-359F6726C5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD93C9C6-BB74-4516-A990-359F6726C5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD93C9C6-BB74-4516-A990-359F6726C5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD93C9C6-BB74-4516-A990-359F6726C5E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C785F18-46F4-464F-9AAF-AE6AD2317ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C785F18-46F4-464F-9AAF-AE6AD2317ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C785F18-46F4-464F-9AAF-AE6AD2317ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
