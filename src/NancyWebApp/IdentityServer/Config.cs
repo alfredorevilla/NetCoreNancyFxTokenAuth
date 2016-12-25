@@ -1,10 +1,29 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityModel;
+using IdentityServer4.Models;
+using IdentityServer4.Services.InMemory;
 using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace NancyWebApp.IdentityServer
 {
     public class Config
     {
+        public static List<InMemoryUser> GetUsers()
+        {
+            return new List<InMemoryUser> {
+            new InMemoryUser {
+                Subject = "F7D5AC0B-5C00-4253-8B54-046392260658",
+                Username = "alfredorevilla",
+                Password = "password",
+                Claims = new List<Claim> {
+                    new Claim(JwtClaimTypes.Email, "alfredorevilla@gmail.com"),
+                    new Claim(JwtClaimTypes.Role, "Administrator"),
+                    new Claim(JwtClaimTypes.Role, "Developer"),
+                }
+            }
+        };
+        }
+
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource> {

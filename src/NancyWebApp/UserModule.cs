@@ -1,23 +1,25 @@
 ﻿using Nancy;
-using Nancy.Security;
-using NancyWebApp.Models;
-using System.Collections.Generic;
+using NancyWebApp.Services;
 
 namespace NancyWebApp
 {
     public class UserModule : NancyModule
     {
-        public UserModule()
+        public UserModule(IUserService userService) : base("/api/")
         {
-            // enable authentication for whole module
-            this.RequiresAuthentication();
-            this.Get<IEnumerable<User>>("/nancy/users/",
-                o =>
-                {
-                    return new[] { new User { Id = "arevilla", UserName = "arevilla" } };
-                },
+            this.UserService = userService;
 
-                null, "GetUsers");
+            //  post /api/users
+            this.Post("/users/", o =>
+            {
+                //this.RequiresAuthentication();
+                return this.UserService.GetUsers();
+            });
+
+            //  post /api/user/{id}/books
+            this.Post("/user/{id}/books", o => new[] { "Dune", "Star Wars" });
         }
+
+        private IUserService UserService { get; }
     }
 }

@@ -1,6 +1,5 @@
 namespace NancyWebApp
 {
-    using Common;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using System.IO;
@@ -9,9 +8,11 @@ namespace NancyWebApp
     {
         public static void Main(string[] args)
         {
+            var path = Directory.GetCurrentDirectory();
+
             var host = new WebHostBuilder()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseUrls(ServerConfig.BaseAddress)
+                .UseContentRoot(path)
+                .UseUrls(NancyWebAppConfig.Url)
                 .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();

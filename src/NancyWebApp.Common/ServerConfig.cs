@@ -3,7 +3,6 @@
     public class ServerConfig
     {
         public const string BaseAddress = "http://localhost:5000/";
-
         public const string AuthorizeEndpoint = BaseAddress + "/connect/authorize";
         public const string LogoutEndpoint = BaseAddress + "/connect/endsession";
         public const string TokenEndpoint = BaseAddress + "/connect/token";

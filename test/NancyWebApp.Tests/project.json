@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "xunit": "2.1.0",
+    "dotnet-test-xunit": "1.0.0-rc2-build10025",
+    "Microsoft.AspNetCore.TestHost": "1.1.0",
+    "FakeItEasy": "3.0.0-beta002-build000066",
+    "FluentAssertions": "4.18.0",
+    "IdentityServer4": "1.0.0-rc5",
+    "Nancy": "2.0.0-barneyrubble",
+    "NancyWebAppClient": "1.0.0-*",
+    //"Nancy.Testing": "2.0.0-barneyrubble",
+    //"Nancy.ViewEngines.Razor": "2.0.0-barneyrubble"
+  },
+
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.1.0",
+          "type": "platform"
+        },
+        "NancyWebApp": "1.0.0-*"
+      },
+      "imports": [
+        "dnxcore50",
+        "portable-net451+win8",
+        "net452"
+      ]
+    }
+  },
+
+  "testRunner": "xunit"
+}

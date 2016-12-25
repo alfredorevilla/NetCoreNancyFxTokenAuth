@@ -1,27 +1,25 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Nancy.Owin;
+using NancyWebApp.Common;
+using NancyWebApp.IdentityServer;
+
 namespace NancyWebApp
 {
-    using Common;
-    using IdentityServer;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
-    using Nancy.Owin;
-
     public class Startup
     {
+        public Startup(IHostingEnvironment env)
+        {
+        }
+
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(LogLevel.Debug);
             app.UseDeveloperExceptionPage();
 
             app.UseIdentityServer();
-            //app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
-            //{
-            //    Authority = ServerConfig.BaseAddress,
-            //    RequireHttpsMetadata = false,
-            //    EnableCaching = false,
-            //    ApiName = "api1",
-            //});
             app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
             {
                 ApiName = "api1",
@@ -39,7 +37,8 @@ namespace NancyWebApp
                 .AddIdentityServer()
                 .AddTemporarySigningCredential()
                 .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients());
+                .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryUsers(Config.GetUsers());
         }
     }
 }
