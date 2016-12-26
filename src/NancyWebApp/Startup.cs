@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nancy.Owin;
-using NancyWebApp.Common;
 using NancyWebApp.IdentityServer;
 
 namespace NancyWebApp
@@ -19,26 +18,32 @@ namespace NancyWebApp
             loggerFactory.AddConsole(LogLevel.Debug);
             app.UseDeveloperExceptionPage();
 
-            app.UseIdentityServer();
-            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+            if (NancyWebAppConfig.IdentityServerEnabled)
             {
-                ApiName = "api1",
-                ApiSecret = "secret",
-                Authority = ServerConfig.BaseAddress,
-                RequireHttpsMetadata = false
-            });
+                app.UseIdentityServer();
+                app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+                {
+                    ApiName = "api1",
+                    ApiSecret = "secret",
+                    Authority = NancyWebAppConfig.Url,
+                    RequireHttpsMetadata = false
+                });
+            }
 
             app.UseOwin(x => x.UseNancy());
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services
+            if (NancyWebAppConfig.IdentityServerEnabled)
+            {
+                services
                 .AddIdentityServer()
                 .AddTemporarySigningCredential()
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddInMemoryUsers(Config.GetUsers());
+                .AddInMemoryApiResources(IdentityServerConfig.GetApiResources())
+                .AddInMemoryClients(IdentityServerConfig.GetClients())
+                .AddInMemoryUsers(IdentityServerConfig.GetUsers());
+            }
         }
     }
 }

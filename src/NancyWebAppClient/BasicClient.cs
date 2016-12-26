@@ -5,30 +5,43 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
+using System.Security;
 using System.Threading.Tasks;
 
 namespace NancyWebAppClient
 {
     public class BasicClient
     {
-        private readonly string token_endpoint;
+        private readonly string TokenEndpoint;
         private TokenResponse TokenResponse;
 
-        public BasicClient(string authority, string clientId, string clientSecret)
+        /// <summary>
+        /// Test ctor
+        /// </summary>
+        /// <param name="httpClientMessageHandler"></param>
+        /// <param name="tokenClientMessageHandler"></param>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
+        public BasicClient(HttpMessageHandler httpClientMessageHandler, string tokenEndPoint, string clientId, string clientSecret)
         {
-            Uri uri;
-            if (!Uri.TryCreate(authority, UriKind.Absolute, out uri))
-            {
-                throw new ArgumentException(nameof(authority));
-            }
-            this.Authority = uri.ToString();
-            token_endpoint = this.Authority + "/connect/token";
-            this.TokenClient = new TokenClient(token_endpoint, clientId, clientSecret);
-            this.HttpClient = new HttpClient();
-            this.HttpClient.BaseAddress = uri;
+            this.HttpClient = new HttpClient(httpClientMessageHandler);
+            this.TokenClient = new TokenClient(tokenEndPoint, clientId, clientSecret, httpClientMessageHandler);
         }
 
-        public string Authority { get; }
+        public BasicClient(HttpClient httpClient, string clientId, string clientSecret)
+        {
+            if (httpClient == null || httpClient.BaseAddress == null)
+            {
+                throw new ArgumentException(nameof(httpClient));
+            }
+            this.HttpClient = httpClient;
+            this.TokenEndpoint = httpClient.BaseAddress + "/connect/token";
+            this.TokenClient = new TokenClient(TokenEndpoint, clientId, clientSecret);
+        }
+
+        public BasicClient(string authority, string clientId, string clientSecret) : this(new HttpClient() { BaseAddress = new Uri(authority) }, clientId, clientSecret)
+        {
+        }
 
         public string BearerToken { get; private set; }
 
@@ -49,11 +62,7 @@ namespace NancyWebAppClient
 
         public async Task<bool> AuthenticateUserAsync(string userName, string password, string api)
         {
-            this.TokenResponse = await this.TokenClient.RequestResourceOwnerPasswordAsync(userName, password);
-            if (TokenResponse == null)
-            {
-                throw new NullReferenceException($"{nameof(TokenResponse)} should not be null");
-            }
+            this.TokenResponse = await this.TokenClient.RequestResourceOwnerPasswordAsync(userName, password, api);
             if (TokenResponse.IsError)
             {
                 return false;
@@ -65,9 +74,9 @@ namespace NancyWebAppClient
             return true;
         }
 
-        public async Task<IEnumerable<Book>> GetBookByUser(string userId)
+        public async Task<IEnumerable<Book>> GetBooksByUser(string userId)
         {
-            return await this.PostReadAsync<dynamic, IEnumerable<Book>>($"user/{userId}/books", null);
+            return await this.PostReadAsync<dynamic, IEnumerable<Book>>($"api/user/{userId}/books", new { });
         }
 
         public DateTimeOffset GetTokenExpirationDate()
@@ -83,7 +92,7 @@ namespace NancyWebAppClient
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await this.PostReadAsync<dynamic, IEnumerable<User>>("api/users", null);
+            return await this.PostReadAsync<dynamic, IEnumerable<User>>("api/users", new { });
         }
 
         private async Task<T> GetAsync<T>(string path)
@@ -94,8 +103,20 @@ namespace NancyWebAppClient
 
         private async Task<T1> PostReadAsync<T, T1>(string path, T value)
         {
+            this.HttpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             var response = await this.HttpClient.PostAsJsonAsync<T>(path, value);
-            return await response.Content.ReadAsAsync<T1>();
+            switch (response.StatusCode)
+            {
+                case System.Net.HttpStatusCode.InternalServerError:
+                    throw new Exception("Unkown server error");
+                case System.Net.HttpStatusCode.OK:
+                    return await response.Content.ReadAsAsync<T1>();
+
+                case System.Net.HttpStatusCode.Unauthorized:
+                    throw new SecurityException("Unauthorized");
+                default:
+                    throw new NotSupportedException($"Got status code {response.StatusCode.ToString()}");
+            }
         }
     }
 }

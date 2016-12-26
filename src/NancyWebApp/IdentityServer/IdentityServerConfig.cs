@@ -6,24 +6,8 @@ using System.Security.Claims;
 
 namespace NancyWebApp.IdentityServer
 {
-    public class Config
+    public class IdentityServerConfig
     {
-        public static List<InMemoryUser> GetUsers()
-        {
-            return new List<InMemoryUser> {
-            new InMemoryUser {
-                Subject = "F7D5AC0B-5C00-4253-8B54-046392260658",
-                Username = "alfredorevilla",
-                Password = "password",
-                Claims = new List<Claim> {
-                    new Claim(JwtClaimTypes.Email, "alfredorevilla@gmail.com"),
-                    new Claim(JwtClaimTypes.Role, "Administrator"),
-                    new Claim(JwtClaimTypes.Role, "Developer"),
-                }
-            }
-        };
-        }
-
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource> {
@@ -38,7 +22,7 @@ namespace NancyWebApp.IdentityServer
                     ClientId = "client",
 
                     // no interactive user, use the clientid/secret for authentication
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
 
                     // secret for authentication
                     ClientSecrets =
@@ -50,6 +34,22 @@ namespace NancyWebApp.IdentityServer
                     AllowedScopes = { "api1" }
                 }
               };
+        }
+
+        public static List<InMemoryUser> GetUsers()
+        {
+            return new List<InMemoryUser> {
+            new InMemoryUser {
+                Subject = "F7D5AC0B-5C00-4253-8B54-046392260658",
+                Username = "alfredorevilla",
+                Password = "password",
+                Claims = new List<Claim> {
+                    new Claim(JwtClaimTypes.Email, "alfredorevilla@gmail.com"),
+                    new Claim(JwtClaimTypes.Role, "Administrator"),
+                    new Claim(JwtClaimTypes.Role, "Developer"),
+                }
+            }
+        };
         }
     }
 }

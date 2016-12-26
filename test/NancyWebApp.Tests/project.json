@@ -10,7 +10,8 @@
     "IdentityServer4": "1.0.0-rc5",
     "NancyWebAppClient": "1.0.0-*",
     "Microsoft.AspNetCore.TestHost": "1.1.0",
-    "NancyWebApp": "1.0.0-*"
+    "NancyWebApp": "1.0.0-*",
+    "Nancy": "2.0.0-barneyrubble"
   },
 
   "frameworks": {

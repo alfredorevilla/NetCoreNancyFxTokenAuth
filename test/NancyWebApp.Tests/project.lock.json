@@ -10670,6 +10670,7 @@
       "FluentAssertions >= 4.18.0",
       "IdentityServer4 >= 1.0.0-rc5",
       "Microsoft.AspNetCore.TestHost >= 1.1.0",
+      "Nancy >= 2.0.0-barneyrubble",
       "NancyWebApp >= 1.0.0-*",
       "NancyWebAppClient >= 1.0.0-*",
       "dotnet-test-xunit >= 2.2.0-preview2-build1029",

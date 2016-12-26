@@ -1,5 +1,7 @@
-﻿using NancyWebApp.Models;
+﻿using NancyWebApp.IdentityServer;
+using NancyWebApp.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NancyWebApp.Services.Implementations
 {
@@ -20,15 +22,13 @@ namespace NancyWebApp.Services.Implementations
 
         public IEnumerable<User> GetUsers()
         {
-            return new[] {
-                new User {
-                    Email = "alfredorevilla@gmail.com",
-                    Id = "1",
-                    UserName = "alfredorevilla" },
-            new User {
-                    Email = "johndoe@microsoft.com",
-                    Id = "2",
-                    UserName = "johndoe" }};
+            return
+               IdentityServerConfig.GetUsers().Select(o => new User
+               {
+                   Email = o.Claims.Single(claim => claim.Type == "email").Value,
+                   Id = o.Subject,
+                   UserName = o.Username
+               });
         }
     }
 }

@@ -8,8 +8,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\obj\Debug\netcoreapp1.1\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\bin\Debug\netcoreapp1.1\NancyWebAppClient.Tests.dll"
+"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\obj\Debug\netcoreapp1.1\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\bin\Debug\netcoreapp1.1\NancyWebApp.Tests.dll"
 -r:"C:\Users\arevilla\.nuget\packages\Castle.Core\4.0.0-beta002\lib\netstandard1.3\Castle.Core.dll"
 -r:"C:\Users\arevilla\.nuget\packages\dotnet-test-xunit\2.2.0-preview2-build1029\lib\netcoreapp1.0\dotnet-test-xunit.dll"
 -r:"C:\Users\arevilla\.nuget\packages\FakeItEasy\3.0.0-beta002-build000066\lib\netstandard1.6\FakeItEasy.dll"
@@ -190,7 +190,6 @@
 -r:"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\src\NancyWebApp\bin\Debug\netcoreapp1.1\NancyWebApp.dll"
 -r:"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\src\NancyWebApp.Common\bin\Debug\netcoreapp1.1\NancyWebApp.Common.dll"
 -r:"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\src\NancyWebAppClient\bin\Debug\netcoreapp1.1\NancyWebAppClient.dll"
-"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\BasicClientTests.cs"
-"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\BasicTests.cs"
-"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\Class.cs"
-"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\Properties\AssemblyInfo.cs"
+"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\Extensions.cs"
+"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\IntegrationTests.cs"
+"C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\Properties\AssemblyInfo.cs"

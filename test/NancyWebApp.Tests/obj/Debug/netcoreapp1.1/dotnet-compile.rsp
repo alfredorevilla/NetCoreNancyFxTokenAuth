@@ -1,5 +1,5 @@
---temp-output:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\obj\Debug\netcoreapp1.1\
---out:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\bin\Debug\netcoreapp1.1\NancyWebAppClient.Tests.dll
+--temp-output:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\obj\Debug\netcoreapp1.1\
+--out:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\bin\Debug\netcoreapp1.1\NancyWebApp.Tests.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_1
@@ -7,7 +7,7 @@
 --suppress-warning:CS1702
 --suppress-warning:CS1705
 --optimize:False
---output-name:NancyWebAppClient.Tests
+--output-name:NancyWebApp.Tests
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
@@ -192,7 +192,6 @@
 --reference:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\src\NancyWebApp\bin\Debug\netcoreapp1.1\NancyWebApp.dll
 --reference:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\src\NancyWebApp.Common\bin\Debug\netcoreapp1.1\NancyWebApp.Common.dll
 --reference:C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\src\NancyWebAppClient\bin\Debug\netcoreapp1.1\NancyWebAppClient.dll
-C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\BasicClientTests.cs
-C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\BasicTests.cs
-C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\Class.cs
-C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebAppClient.Tests\Properties\AssemblyInfo.cs
+C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\Extensions.cs
+C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\IntegrationTests.cs
+C:\Users\arevilla\Source\Repos\NetCoreNancyFxTokenAuth\test\NancyWebApp.Tests\Properties\AssemblyInfo.cs

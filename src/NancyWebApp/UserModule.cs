@@ -11,7 +11,10 @@ namespace NancyWebApp
             this.UserService = userService;
 
             //  require auth for all module endpoints
-            this.RequiresAuthentication();
+            if (NancyWebAppConfig.IdentityServerEnabled)
+            {
+                this.RequiresAuthentication();
+            }
 
             //  post /api/users
             this.Post("/users/", o =>

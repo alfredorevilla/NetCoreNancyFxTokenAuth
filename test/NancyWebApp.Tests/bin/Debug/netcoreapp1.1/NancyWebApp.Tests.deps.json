@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1": {
-      "NancyWebAppClient.Tests/1.0.0": {
+      "NancyWebApp.Tests/1.0.0": {
         "dependencies": {
           "xunit": "2.2.0-beta4-build3444",
           "dotnet-test-xunit": "2.2.0-preview2-build1029",
@@ -15,10 +15,11 @@
           "IdentityServer4": "1.0.0-rc5",
           "NancyWebAppClient": "1.0.0",
           "Microsoft.AspNetCore.TestHost": "1.1.0",
-          "NancyWebApp": "1.0.0"
+          "NancyWebApp": "1.0.0",
+          "Nancy": "2.0.0-barneyrubble"
         },
         "runtime": {
-          "NancyWebAppClient.Tests.dll": {}
+          "NancyWebApp.Tests.dll": {}
         }
       },
       "Castle.Core/4.0.0-beta002": {
@@ -870,7 +871,7 @@
     }
   },
   "libraries": {
-    "NancyWebAppClient.Tests/1.0.0": {
+    "NancyWebApp.Tests/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
