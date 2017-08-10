@@ -1,23 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebApp", "src\NancyWebApp\NancyWebApp.xproj", "{47491253-E57C-49E3-BA01-4A68A69EFD41}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E898BE28-3B58-4120-967D-29F9ACFCBAA1}"
 	ProjectSection(SolutionItems) = preProject
 		..\global.json = ..\global.json
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebAppClient", "src\NancyWebAppClient\NancyWebAppClient.xproj", "{3C785F18-46F4-464F-9AAF-AE6AD2317ABF}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NancyWebApp.Tests", "test\NancyWebApp.Tests\NancyWebApp.Tests.xproj", "{34D067BA-EB79-49A6-8A49-54556C5B4488}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EB00C6D6-7884-4FE5-AD4A-EEF26E75C1C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CF1A6992-0B6A-4A68-AE0E-7E5DB435B0A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NancyWebApp", "src\NancyWebApp\NancyWebApp.csproj", "{47491253-E57C-49E3-BA01-4A68A69EFD41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NancyWebAppClient", "src\NancyWebAppClient\NancyWebAppClient.csproj", "{3C785F18-46F4-464F-9AAF-AE6AD2317ABF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NancyWebApp.Tests", "test\NancyWebApp.Tests\NancyWebApp.Tests.csproj", "{34D067BA-EB79-49A6-8A49-54556C5B4488}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
