@@ -1,24 +1,19 @@
-#Introduction 
+## Introduction 
 Sample NancyFX API with integrated OAuth2 Authentication using IdentityServer4
-(C)Alfredo O. Revilla
+(C) 2017 Alfredo O. Revilla
 
-#Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## Getting Started
+Sample integration with tests. Contains an API, a client and integration tests.
 
-#Build and Test
-Simply run dotnet run at console from project root folder. I.e:
-cd %path%\src\NancyWebApp\
+## Running the API
+cd src\NancyWebApp\
 dotnet restore
 dotnet run
 
-#Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## Connecting the API
+Import NancyWebAppClient project and use BasicClient class.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Run the tests
+cd \test\NancyWebApp.Tests
+dotnet restore
+dotnet test
