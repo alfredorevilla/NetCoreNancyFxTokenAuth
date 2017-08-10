@@ -16,7 +16,7 @@ namespace NancyWebApp.Tests
     public class IntegrationTests
     {
         [Fact]
-        public void AuthenticateShouldReturnFalse()
+        public void Authenticate_should_return_False()
         {
             //  arrange
             NancyWebAppConfig.IdentityServerEnabled = true;
@@ -36,7 +36,7 @@ namespace NancyWebApp.Tests
         }
 
         [Fact]
-        public void AuthenticateShouldReturnTrue()
+        public void Authenticate_should_return_True()
         {
             //  arrange
             NancyWebAppConfig.IdentityServerEnabled = true;
@@ -56,7 +56,7 @@ namespace NancyWebApp.Tests
         }
 
         [Fact]
-        public void GetBooksByUserShouldBeOk()
+        public void GetBooksByUser_should_be_Ok()
         {
             //  arrange
             NancyWebAppConfig.IdentityServerEnabled = false;
@@ -135,7 +135,7 @@ namespace NancyWebApp.Tests
         }
 
         [Fact]
-        public void GetUsersShouldBeOk()
+        public void GetUsers_should_be_Ok()
         {
             //  arrange
             NancyWebAppConfig.IdentityServerEnabled = false;
@@ -155,7 +155,7 @@ namespace NancyWebApp.Tests
         }
 
         [Fact]
-        public void GetUsersShouldThowUnauthorizedSecurityException()
+        public void GetUsers_should_thow_UnauthorizedSecurityException()
         {
             //  arrange
             NancyWebAppConfig.IdentityServerEnabled = true;

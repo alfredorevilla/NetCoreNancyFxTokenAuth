@@ -87,7 +87,7 @@ namespace NancyWebAppClient
 
         public string GetTokenUserId()
         {
-            return this.TokenAsJwt.Subject;
+            return this.TokenAsJwt?.Subject;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
